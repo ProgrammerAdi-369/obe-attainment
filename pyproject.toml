@@ -7,7 +7,7 @@ name = "obe"
 version = "0.1.0"
 description = "OBE attainment calculation system"
 requires-python = ">=3.11"
-dependencies = ["pydantic>=2", "pyyaml", "openpyxl"]
+dependencies = ["pydantic>=2", "pyyaml", "openpyxl", "xlsxwriter"]
 
 [project.optional-dependencies]
 dev = ["pytest", "ruff"]

@@ -36,14 +36,15 @@ class MarksData(NamedTuple):
     names: dict[str, str]  # id -> name; personal data, keep out of logs
 
 
-def read_table(path: Path) -> list[list]:
-    """Rows of the file as lists; .xlsx (first sheet) or .csv."""
+def read_table(path: Path, sheet: str | None = None) -> list[list]:
+    """Rows of the file as lists; .xlsx (the named sheet, default the first) or .csv."""
     if Path(path).suffix.lower() == ".csv":
         with open(path, newline="", encoding="utf-8-sig") as f:
             return [[c if c != "" else None for c in row] for row in csv.reader(f)]
     wb = load_workbook(path, read_only=True, data_only=True)
     try:
-        return [list(r) for r in wb.worksheets[0].iter_rows(values_only=True)]
+        ws = wb[sheet] if sheet else wb.worksheets[0]
+        return [list(r) for r in ws.iter_rows(values_only=True)]
     finally:
         wb.close()
 
@@ -116,5 +117,5 @@ def parse_marks(table: list[list], course: CourseConfig) -> MarksData:
     return MarksData(students, names)
 
 
-def load_marks(path: Path, course: CourseConfig) -> MarksData:
-    return parse_marks(read_table(path), course)
+def load_marks(path: Path, course: CourseConfig, sheet: str | None = None) -> MarksData:
+    return parse_marks(read_table(path, sheet), course)

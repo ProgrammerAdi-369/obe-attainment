@@ -78,6 +78,7 @@ class Rules(_Model):
     hours_to_strength: list[HoursBand]
     multi_co_split: Literal["equal"]
     absent_marks: Literal[0]
+    student_po_enabled: bool
 
     @model_validator(mode="after")
     def _bands_cover_all_shares(self):

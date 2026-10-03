@@ -71,6 +71,7 @@ def test_rules_come_from_rules_yaml(rules):
     assert rules.level_scale.floor_pct == 50
     assert (rules.split.internal, rules.split.end_term) == (0.6, 0.4)
     assert not rules.total_attainment.indirect_enabled
+    assert not rules.student_po_enabled
 
 
 # ---------------------------------------------------- course checks, one each

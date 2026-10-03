@@ -31,3 +31,6 @@ hours_to_strength:
 
 multi_co_split: equal       # OPEN: O11, a unit or lab with several COs is split equally between them
 absent_marks: 0             # OPEN: O7, no absent marker exists; absent is scored 0
+
+# Step 7: per-student PO and PSO attainment is off until the faculty confirm the definition.
+student_po_enabled: false   # OPEN: O9

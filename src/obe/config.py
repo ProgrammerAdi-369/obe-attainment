@@ -12,6 +12,8 @@ from typing import Annotated, Literal
 import yaml
 from pydantic import BaseModel, ConfigDict, Field, ValidationError, model_validator
 
+from obe.core.weights import marks_per_co
+
 CONFIG_DIR = Path(__file__).resolve().parents[2] / "config"
 
 
@@ -176,18 +178,12 @@ class CourseConfig(_Model):
 
     def allocation(self) -> dict[str, dict[str, float]]:
         """Marks each non-end-term tool carries per CO; the LCA is split 1/N per lab assignment."""
-        co_codes = [c.code for c in self.cos]
-        out: dict[str, dict[str, float]] = {}
-        for t in self.tools:
-            if t.category == "CCA":
-                out[t.name] = {co: (t.co_marks or {}).get(co, 0.0) for co in co_codes}
-            elif t.category == "LCA":
-                row = dict.fromkeys(co_codes, 0.0)
-                for lab in self.labs:
-                    for co in lab.co_codes:  # OPEN: O11, equal split between the COs of a lab
-                        row[co] += t.max_marks / len(self.labs) / len(lab.co_codes)
-                out[t.name] = row
-        return out
+        return marks_per_co(
+            [c.code for c in self.cos],
+            {t.name: t.co_marks or {} for t in self.tools if t.category == "CCA"},
+            {t.name: t.max_marks for t in self.tools if t.category == "LCA"},
+            [lab.co_codes for lab in self.labs],
+        )
 
     @model_validator(mode="after")
     def _checks(self):

@@ -1,0 +1,9 @@
+data/main file/
+data/sample/
+.env
+__pycache__/
+.venv/
+.pytest_cache/
+.ruff_cache/
+*.egg-info/
+~$*

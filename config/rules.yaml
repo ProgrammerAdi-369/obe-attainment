@@ -1,0 +1,33 @@
+# Global rules, the same for every course. Changed only by editing this file.
+# Source: docs/PROJECT.md sections 7 and 8. "OPEN: Ox" marks a working answer for an open item (section 13).
+
+# Step 3: internal marks are converted to 60%, the end-term (out of 40) is taken as 40%.
+split:
+  internal: 0.6
+  end_term: 0.4
+
+end_term_max: 40          # end-term is always out of 40, equal for all COs (OPEN: O14)
+internal_total_max: 60    # internal tool maximums (CCA plus LCA) must add up to this
+
+# Step 5: 80/20 is built in, but the indirect (survey) part is switched off in phase 1.
+total_attainment:
+  direct_weight: 0.8
+  indirect_weight: 0.2
+  indirect_enabled: false   # OPEN: O10
+
+# Step 4: level 3 at or above the CO target, 2 from the floor up to the target, 1 below the floor.
+level_scale:
+  levels: [3, 2, 1]
+  floor_pct: 50             # OPEN: O13
+
+# Step 6: share of total hours -> baseline mapping strength (Table 5). Bands are read from the top;
+# a CO gets the strength of the first band its share reaches. "More than 30%" is strict, the others
+# are inclusive. Values between the printed bands (29 to 30, 15 to 16) fall into the lower band.
+hours_to_strength:
+  - {strength: 3, min_pct: 30, inclusive: false}
+  - {strength: 2, min_pct: 16, inclusive: true}
+  - {strength: 1, min_pct: 5, inclusive: true}
+  - {strength: 0, min_pct: 0, inclusive: true}
+
+multi_co_split: equal       # OPEN: O11, a unit or lab with several COs is split equally between them
+absent_marks: 0             # OPEN: O7, no absent marker exists; absent is scored 0

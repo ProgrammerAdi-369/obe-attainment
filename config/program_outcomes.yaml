@@ -1,0 +1,18 @@
+# Program outcomes and program specific outcomes (docs/PROJECT.md section 13: PO1 to PO12, PSO1 to PSO3).
+# Descriptions are not in the docs, so only codes are kept.
+outcomes:
+  - {code: PO1, type: PO}
+  - {code: PO2, type: PO}
+  - {code: PO3, type: PO}
+  - {code: PO4, type: PO}
+  - {code: PO5, type: PO}
+  - {code: PO6, type: PO}
+  - {code: PO7, type: PO}
+  - {code: PO8, type: PO}
+  - {code: PO9, type: PO}
+  - {code: PO10, type: PO}
+  - {code: PO11, type: PO}
+  - {code: PO12, type: PO}
+  - {code: PSO1, type: PSO}
+  - {code: PSO2, type: PSO}
+  - {code: PSO3, type: PSO}

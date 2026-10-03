@@ -1,0 +1,72 @@
+# Course set-up for the sample course. Values come from the course workbook (CET3011B_SSCD, 2025-26)
+# and docs/PROJECT.md section 7. Typos in CO descriptions and lab names are kept as in the workbook.
+course:
+  code: CET3011B
+  name: "System Software and Compiler Design"
+  program: "B.Tech CSE"
+  class: "Final Year Btech, CSE"
+  semester: "VIII"
+  academic_year: "2025-26"
+  batch: "2022-26"            # from the docs (section 7); the workbook itself does not state a batch
+
+cos:
+  - {code: CO1, description: "To analyse and synthesize the translator"}
+  - {code: CO2, description: "To develop a pre-processor ,linker and loader schemes"}
+  - {code: CO3, description: "To apply a knowledge of lex tool and yacc tool to develop a sanner and parser"}
+  - {code: CO4, description: "To design syntax-directed translation and internediate code generation schemes for high level languagges"}
+  - {code: CO5, description: "To apply the code optimization techniques and generate code for high level language program"}
+
+# Table A: one target per CO, given by the course teachers (Form 8).
+co_targets: {CO1: 60, CO2: 50, CO3: 55, CO4: 50, CO5: 50}
+
+# Table 2: theory hours per unit, 45 in total.
+units:
+  - {unit_no: 1, theory_hours: 9, co_codes: [CO1]}
+  - {unit_no: 2, theory_hours: 9, co_codes: [CO2]}
+  - {unit_no: 3, theory_hours: 9, co_codes: [CO3]}
+  - {unit_no: 4, theory_hours: 9, co_codes: [CO4]}
+  - {unit_no: 5, theory_hours: 9, co_codes: [CO5]}
+
+# Table 3: lab assignments, the initial input of a course.
+# OPEN: O5, the workbook has no lab hours; 3, 3, 4, 4, 4, 4, 4, 4 (30 in total) is the working answer.
+labs:
+  - {assignment_no: 1, name: "Assembler Pass 1", unit_no: 1, co_codes: [CO1], lab_hours: 3}
+  - {assignment_no: 2, name: "Assembler Pass 2", unit_no: 1, co_codes: [CO1], lab_hours: 3}
+  - {assignment_no: 3, name: "Macro Pass 1", unit_no: 2, co_codes: [CO2], lab_hours: 4}
+  - {assignment_no: 4, name: "Macro Pass 2", unit_no: 2, co_codes: [CO2], lab_hours: 4}
+  - {assignment_no: 5, name: "Lexical Analysis", unit_no: 3, co_codes: [CO3], lab_hours: 4}
+  - {assignment_no: 6, name: "RDP", unit_no: 3, co_codes: [CO3], lab_hours: 4}
+  - {assignment_no: 7, name: "Compund statement", unit_no: 3, co_codes: [CO3], lab_hours: 4}
+  - {assignment_no: 8, name: "calculator using lex and yacc", unit_no: 3, co_codes: [CO3], lab_hours: 4}
+
+# Assessment tools, fixed by the syllabus. The CCA tools carry marks per CO. The LCA marks per CO are
+# generated from the labs (1/N per assignment), and the end-term counts equally for every CO, so
+# neither has co_marks here.
+tools:
+  - {name: Assignment, category: CCA, max_marks: 5, co_marks: {CO1: 3, CO2: 2, CO3: 0, CO4: 0, CO5: 0}}
+  - {name: PBL, category: CCA, max_marks: 10, co_marks: {CO1: 0, CO2: 0, CO3: 5, CO4: 2, CO5: 3}}
+  - {name: Mid-term, category: CCA, max_marks: 15, co_marks: {CO1: 7, CO2: 8, CO3: 0, CO4: 0, CO5: 0}}
+  - {name: LCA, category: LCA, max_marks: 30}
+  - {name: End-term, category: END_TERM, max_marks: 40}
+
+# Table 1: CO-PO/PSO ticks (1 = tick). OPEN: O4, the workbook leaves PO9, PSO1 and PSO2 blank for every
+# CO and the upload rule reads blank as 0. Only the final mapping (Table 7) is used in the calculation.
+co_po_ticks:
+  CO1: {PO1: 1, PO2: 1, PO3: 1, PO4: 0, PO5: 0, PO6: 0, PO7: 0, PO8: 1, PO9: 0, PO10: 1, PO11: 0, PO12: 1, PSO1: 0, PSO2: 0, PSO3: 1}
+  CO2: {PO1: 1, PO2: 1, PO3: 1, PO4: 0, PO5: 0, PO6: 0, PO7: 0, PO8: 1, PO9: 0, PO10: 1, PO11: 0, PO12: 1, PSO1: 0, PSO2: 0, PSO3: 1}
+  CO3: {PO1: 1, PO2: 1, PO3: 1, PO4: 0, PO5: 1, PO6: 0, PO7: 0, PO8: 1, PO9: 0, PO10: 1, PO11: 0, PO12: 1, PSO1: 0, PSO2: 0, PSO3: 1}
+  CO4: {PO1: 1, PO2: 1, PO3: 1, PO4: 0, PO5: 0, PO6: 0, PO7: 0, PO8: 1, PO9: 0, PO10: 1, PO11: 0, PO12: 1, PSO1: 0, PSO2: 0, PSO3: 1}
+  CO5: {PO1: 1, PO2: 1, PO3: 1, PO4: 0, PO5: 0, PO6: 0, PO7: 0, PO8: 1, PO9: 0, PO10: 1, PO11: 0, PO12: 1, PSO1: 0, PSO2: 0, PSO3: 1}
+
+# Table 7: final CO-PO/PSO mapping strengths 0 to 3, the only mapping used in the calculation.
+co_po_final:
+  CO1: {PO1: 3, PO2: 3, PO3: 0, PO4: 0, PO5: 0, PO6: 0, PO7: 0, PO8: 3, PO9: 3, PO10: 3, PO11: 0, PO12: 3, PSO1: 3, PSO2: 3, PSO3: 3}
+  CO2: {PO1: 3, PO2: 3, PO3: 0, PO4: 0, PO5: 0, PO6: 0, PO7: 0, PO8: 3, PO9: 3, PO10: 3, PO11: 0, PO12: 3, PSO1: 3, PSO2: 3, PSO3: 3}
+  CO3: {PO1: 3, PO2: 3, PO3: 3, PO4: 0, PO5: 3, PO6: 0, PO7: 0, PO8: 3, PO9: 3, PO10: 3, PO11: 0, PO12: 3, PSO1: 3, PSO2: 3, PSO3: 3}
+  CO4: {PO1: 3, PO2: 3, PO3: 3, PO4: 0, PO5: 0, PO6: 0, PO7: 0, PO8: 2, PO9: 2, PO10: 2, PO11: 0, PO12: 2, PSO1: 2, PSO2: 2, PSO3: 2}
+  CO5: {PO1: 3, PO2: 3, PO3: 3, PO4: 0, PO5: 0, PO6: 0, PO7: 0, PO8: 2, PO9: 2, PO10: 2, PO11: 0, PO12: 2, PSO1: 2, PSO2: 2, PSO3: 2}
+
+# Control totals checked when the file is loaded (docs section 14, step 2).
+expected:
+  theory_hours: 45
+  lab_hours: 30

@@ -1,5 +1,7 @@
-data/main file/
-data/sample/
+data/main file/*
+data/sample/*
+!data/sample/.gitkeep
+!data/main file/.gitkeep
 .env
 __pycache__/
 .venv/
